@@ -1,0 +1,25 @@
+@use "./../../assets//style//mixins" as * ;
+@use "./../../assets//style//variables" as * ;
+
+.form-row{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    max-width: 350px;
+    .label{
+        @include font-abeezee(16)
+    }
+    .input{
+        width: 100%;
+        background-color: $bg-form-input;
+        @include font-abeezee(14);
+        @include input(10,15px,25px,$color-text-input)
+    }
+    .icon-eye{
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+
+}

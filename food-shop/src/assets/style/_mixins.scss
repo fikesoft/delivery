@@ -1,0 +1,18 @@
+@mixin font-abeezee($size, $weight: 400, $italic: false) {
+    font-family: "ABeeZee", sans-serif;
+    font-size: $size;
+    font-weight: $weight;
+    font-style: if($italic, italic, normal);
+  }
+@mixin input($border-radius:10,$padding-vertical,$padding-horizontal,$color-text){
+  border-radius: 10px;
+  padding: $padding-vertical $padding-horizontal;
+  color:$color-text;
+}
+
+@mixin submit-button($border-radius,$color-background,$padding-vertical,$padding-horizontal,$color-text){
+  border-radius: $border-radius;
+  background-color: $color-background;
+  padding: $padding-vertical $padding-horizontal;
+  color: $color-text;
+}

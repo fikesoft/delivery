@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap");
+.logo-container {
+  display: flex;
+  gap: 15px;
+  max-width: 330px;
+}
+.logo-container .text {
+  display: flex;
+  flex-direction: column;
+}
+.logo-container .text .title {
+  font-family: "ABeeZee", sans-serif;
+  font-size: 24;
+  font-weight: 400;
+  font-style: normal;
+  color: #181818;
+}
+.logo-container .text .subtitle {
+  font-family: "ABeeZee", sans-serif;
+  font-size: 16;
+  font-weight: 400;
+  font-style: normal;
+  color: #7B7B7B;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  max-width: 350px;
+}
+.form-row .label {
+  font-family: "ABeeZee", sans-serif;
+  font-size: 16;
+  font-weight: 400;
+  font-style: normal;
+}
+.form-row .input {
+  width: 100%;
+  background-color: #F3F3F3;
+  font-family: "ABeeZee", sans-serif;
+  font-size: 14;
+  font-weight: 400;
+  font-style: normal;
+  border-radius: 10px;
+  padding: 15px 25px;
+  color: #2C2C2C;
+}
+.form-row .icon-eye {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.auth-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  background-color: #FED892;
+  top: 0;
+  left: 0;
+}
+.auth-page .bgphoto {
+  position: absolute;
+  top: 110px;
+  left: 0;
+  z-index: 1;
+  max-width: 1200px;
+}
+.auth-page .auth-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+  border-radius: 10px;
+  width: 15%;
+  padding: 20px 40px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+.auth-page .auth-container .login-container-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.auth-page .auth-container .login-container-form .input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 15px;
+}
+.auth-page .auth-container .login-container-form .button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  font-family: "ABeeZee", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+}
+.auth-page .auth-container .login-container-form .button-container span {
+  color: #FE5F1E;
+}
+
+.form-btn {
+  border-radius: 30px;
+  background-color: #FE5F1E;
+  padding: 17px 13px;
+  color: #FFFFFF;
+  max-width: 200px;
+  font-family: "ABeeZee", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*# sourceMappingURL=index.css.map */
