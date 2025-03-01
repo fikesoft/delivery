@@ -1,12 +1,34 @@
-import express from 'express';
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./config/db";
+import registerRouter from "./routes/register";
 
+var cors = require("cors")
+
+// Load environment variables
+dotenv.config();
+
+// Initialize Express app
 const app = express();
-const PORT = 3000;
+app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
+// Use CORS based on environment
+const isDev = process.env.NODE_ENV === "development";
+app.use(
+  cors({
+    origin: process.env.ORIGIN || (isDev ? "http://localhost:5173" : "PROD LINK"),
+    credentials: true, // Allow cookies
+  })
+);
 
+// Connect to database
+connectDB();
+
+// API Routes
+app.use("/api/register", registerRouter);
+
+// Start server
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(` Server running in ${process.env.NODE_ENV} mode on http://localhost:${PORT}`);
 });
