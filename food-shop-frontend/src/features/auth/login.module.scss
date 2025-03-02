@@ -31,11 +31,17 @@
       flex-direction: column;
       gap: 50px;
       border-radius: 10px;
-      width: 15%;
+      width: 450px;
       padding: 20px 40px;
       box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
       background-color: #FFFF;
-  
+      .custom-notification{
+        position: absolute;
+        top: 160px;   // Adjust to move up/down
+        left: 50%;   // Center horizontally
+        transform: translateX(-50%);  // Adjust for exact centering
+        z-index: 9999;
+      }
       .login-container-form {
         display: flex;
         align-items: center;
@@ -63,4 +69,9 @@
       }
     }
   }
+@media(max-width:1000px){
+  .bgphoto{
+    display: none;
+  }
+}
   

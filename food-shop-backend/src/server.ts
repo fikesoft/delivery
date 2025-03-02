@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db";
 import registerRouter from "./routes/register";
-
+import  loginUser  from "./routes/login";
 var cors = require("cors")
 
 // Load environment variables
@@ -26,7 +26,7 @@ connectDB();
 
 // API Routes
 app.use("/api/register", registerRouter);
-
+app.use("/api/login",loginUser)
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

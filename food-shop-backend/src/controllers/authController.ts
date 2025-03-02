@@ -1,6 +1,7 @@
 import  { Request, Response } from 'express';
 import User from '../models/users';
 import { getDeviceInfo,getLocationFromIp , getIpAddress } from '../utils/userUtils';
+import bcrypt from 'bcryptjs';
 
 export const registerUser = async (request:Request, response:Response) : Promise<void> =>{
     try {
@@ -42,3 +43,38 @@ export const registerUser = async (request:Request, response:Response) : Promise
         return
     }
 }
+export const loginUser = async (req: Request, res: Response): Promise<void> => {
+    try {
+      const { login, password } = req.body;
+  
+      // Validation 
+      if (!login || !password) {
+        res.status(400).json({ message: "All fields are required" });
+        return;
+      }
+  
+      // Find the user
+      const existingUser = await User.findOne({ login });
+      if (!existingUser) {
+        res.status(404).json({ message: "User not found" });
+        return;
+      }
+  
+      // Compare passwords
+      const isMatch = await bcrypt.compare(password, existingUser.password);
+      if (!isMatch) {
+        res.status(401).json({ message: "Incorrect password" });
+        return;
+      }
+  
+      // Successful login
+      res.status(200).json({ 
+        message: "User login successfully", 
+        username: existingUser.username,
+        isAdmin: existingUser.isAdmin,
+      });
+    } catch (error: any) {
+      res.status(500).json({ message: "Server error", details: error.message });
+    }
+  };
+  

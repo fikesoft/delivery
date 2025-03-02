@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { IconType } from "react-icons";
+import classNames from "classnames";
 
 export type FormRowProps = {
     labelText:string,
@@ -10,6 +11,7 @@ export type FormRowProps = {
     name?:string
     iconOpenEye?:IconType
     iconClosedEye?:IconType
+    errorMessage?:string
 }
 
 const FormRow:React.FC<FormRowProps> = ({
@@ -21,14 +23,25 @@ const FormRow:React.FC<FormRowProps> = ({
     name,
     iconOpenEye:OpenEye,
     iconClosedEye:ClosedEye,
+    errorMessage
     }) => {
     const [passwordVisible,setPassowrdVisible] =useState(false)
+    const [isShaking,setIsShaking] = useState(false)
     
     const togglePasswordVisible= ():void =>{
         setPassowrdVisible(prev=>!prev)
     }
+    useEffect(() => {
+        if (errorMessage && errorMessage.trim() !== "") {
+            setIsShaking(true);
+            setTimeout(() => setIsShaking(false), 1000);
+        }
+    }, [errorMessage]);
+
     return (
-    <div className="form-row">
+    <>
+   {errorMessage && <p className="error-message">{errorMessage}</p>}
+    <div className={classNames("form-row",{shake:isShaking})}>
         <label className="label">{labelText}</label>
         <input 
             placeholder={placeHolderText}
@@ -44,6 +57,9 @@ const FormRow:React.FC<FormRowProps> = ({
         <ClosedEye onClick={togglePasswordVisible} className="icon-eye"/>
         )}
     </div>
+    
+    </>
+    
   )
 }
 

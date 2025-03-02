@@ -1,11 +1,25 @@
-import { JSX } from "react"
+import { JSX, useState } from "react"
 import { Outlet, Navigate } from "react-router-dom"
+import { useAuth } from "../context/AuthContext";
+interface ProtectedRouteProps{
+    requiredRole?: "admin" | "user";
+}
 
-const ProtectedRoutes = ():JSX.Element => {
-    //Logic of the auth 
-    const isAuthenticated = false
+const ProtectedRoutes: React.FC<ProtectedRouteProps>  = ({requiredRole}) => {
+    const { auth } = useAuth();
 
-    return isAuthenticated ? <Outlet/> : <Navigate to="/login" replace/>
+    // If the user is not authenticated, redirect to login
+    if (!auth.isAuthenticated) {
+      return <Navigate to="/login" replace />;
+    }
+  
+    // If admin is required and the user is not an admin, redirect to a safe route
+    if (requiredRole === "admin" && !auth.isAdmin) {
+      return <Navigate to="/" replace />;
+    }
+  
+    // Otherwise, render the nested routes
+    return <Outlet />;
 }
 
 export default ProtectedRoutes

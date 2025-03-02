@@ -23,6 +23,38 @@
   color: #7B7B7B;
 }
 
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+.error-message {
+  color: #EF5350;
+  font-family: "ABeeZee", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .form-row {
   display: flex;
   align-items: center;
@@ -31,7 +63,7 @@
 }
 .form-row .label {
   font-family: "ABeeZee", sans-serif;
-  font-size: 16;
+  font-size: 16px;
   font-weight: 400;
   font-style: normal;
 }
@@ -39,7 +71,7 @@
   width: 100%;
   background-color: #F3F3F3;
   font-family: "ABeeZee", sans-serif;
-  font-size: 14;
+  font-size: 14px;
   font-weight: 400;
   font-style: normal;
   border-radius: 10px;
@@ -80,10 +112,17 @@
   flex-direction: column;
   gap: 50px;
   border-radius: 10px;
-  width: 15%;
+  width: 450px;
   padding: 20px 40px;
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
   background-color: white;
+}
+.auth-page .auth-container .custom-notification {
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
 }
 .auth-page .auth-container .login-container-form {
   display: flex;
@@ -112,6 +151,11 @@
   color: #FE5F1E;
 }
 
+@media (max-width: 1000px) {
+  .bgphoto {
+    display: none;
+  }
+}
 .form-btn {
   border-radius: 30px;
   background-color: #FE5F1E;
