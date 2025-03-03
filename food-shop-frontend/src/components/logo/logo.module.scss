@@ -9,11 +9,11 @@
         display: flex;
         flex-direction: column;
         .title{
-            @include font-abeezee(24);
+            @include font-abeezee(24px);
            color: $primary-text ;
         }
         .subtitle{
-            @include font-abeezee(16);
+            @include font-abeezee(16px);
             color:$second-text;
         }
     }

@@ -1,8 +1,9 @@
 import { createBrowserRouter,RouterProvider} from "react-router-dom"
 import {Login,Register} from "./features/auth"
 import { Home } from "./features/home"
-import { Admin } from "./features/admin"
+import { Admin,Users, Crud} from "./features/admin"
 import MainLayout from "./layouts/MainLayout"
+import AdminLayout from "./layouts/AdminLayout"
 import { ProtectedRoute } from "./routes"
 import { AuthProvider } from "./context/AuthContext"
 import "./assets/style/reset.css";
@@ -34,8 +35,21 @@ const routes = createBrowserRouter([
         element: <ProtectedRoute requiredRole="admin" />, // Only for admin
         children: [
           {
-            index: true,
-            element: <Admin />,
+            element: <AdminLayout/>, 
+            children:[
+              {
+                index: true,
+                element: <Admin />, // Default admin page
+              },
+              {
+                path:"users",
+                element:<Users/>
+              },
+              {
+                path:"pizza-crud",
+                element:<Users/>
+              }
+            ]
           },
         ],
       },

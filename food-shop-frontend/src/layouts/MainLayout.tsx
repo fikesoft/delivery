@@ -6,7 +6,8 @@ const MainLayout = () => {
         <header>
             Navbar
         </header>
-        <main>
+        <main className="admin-content">
+          {/* This is where child routes will render */}
             <Outlet/>
         </main>
     </>

@@ -5,7 +5,7 @@ interface AuthState {
   isAdmin: boolean;
   user?: {
     username: string;
-    // ... any other user properties
+    
   };
 }
 
