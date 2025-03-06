@@ -1,9 +1,11 @@
 import { createBrowserRouter,RouterProvider} from "react-router-dom"
 import {Login,Register} from "./features/auth"
 import { Home } from "./features/home"
-import { Admin,Users, Crud} from "./features/admin"
+import { Admin,Users,CreatePizza,UpdatePizza,ReadPizza,DeletePizza} from "./features/admin"
+import NotFound from "./components/error/NotFound"
 import MainLayout from "./layouts/MainLayout"
 import AdminLayout from "./layouts/AdminLayout"
+import CrudLayout from "./layouts/CrudLayout"
 import { ProtectedRoute } from "./routes"
 import { AuthProvider } from "./context/AuthContext"
 import "./assets/style/reset.css";
@@ -47,7 +49,28 @@ const routes = createBrowserRouter([
               },
               {
                 path:"pizza-crud",
-                element:<Users/>
+                element:<CrudLayout/>,
+                children:[
+                    {
+                      index:true,
+                    },
+                    {
+                      path:"create",
+                      element:<CreatePizza/>
+                    },
+                    {
+                      path:"read",
+                      element:<ReadPizza/>
+                    },
+                    {
+                      path:"update",
+                      element:<UpdatePizza/>
+                    },
+                    {
+                      path:"delete",
+                      element:<DeletePizza/>
+                    }
+                ]
               }
             ]
           },
@@ -55,6 +78,10 @@ const routes = createBrowserRouter([
       },
     ],
   },
+  {
+    path:"*",
+    element: <NotFound/>
+  }
 ]);
 function App() {
   return (

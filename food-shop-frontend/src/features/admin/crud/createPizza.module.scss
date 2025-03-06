@@ -1,0 +1,201 @@
+@use "../../../assets/style/mixins" as *;
+@use "../../../assets/style/variables" as *;
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .create-container {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+        gap: 250px;
+        align-items: center;
+
+        @media (max-width: 1200px) {
+            gap: 150px; // Reduce gap for medium screens
+        }
+
+        @media (max-width: 1024px) {
+            flex-direction: column; // Stack elements vertically
+            gap: 50px; 
+        }
+    }
+
+    .create-pizza {
+        width: 100%;
+        background-color: $color-bg-main;
+        padding: 40px 60px;
+        border-radius: 12px;
+
+        h1 {
+            @include font-abeezee(24px, 600);
+            color: $primary-text;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        &-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .category {
+                p {
+                    @include font-abeezee(16px, 500);
+                    color: $primary-text;
+                    margin-bottom: 5px;
+                }
+
+                .choose-category {
+                    display: flex;
+                    gap: 10px;
+                    flex-wrap: wrap;
+
+                    .category-button {
+                        @include submit-button(5px, $color-bg-button, 5px, 10px, $color-text-button);
+
+                        &:hover {
+                            background-color: $color-bg-button-hover;
+                        }
+
+                        &.selected {
+                            background-color: $color-bg-button-hover;
+                        }
+                    }
+                }
+            }
+
+            .ingredients {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid $primary-text;
+
+                .add-ingredients {
+                    @include submit-button(5px, $color-bg-button, 5px, 10px, $color-text-button);
+
+                    &:hover {
+                        background-color: $color-bg-button-hover;
+                    }
+                }
+            }
+
+            .pizza-dough {
+                p {
+                    @include font-abeezee(16px, 500);
+                    color: $primary-text;
+                    margin-bottom: 5px;
+                }
+
+                .choose-dough {
+                    display: flex;
+                    gap: 10px;
+                    flex-wrap: wrap;
+
+                    .dough-button {
+                        @include submit-button(5px, $color-bg-button, 5px, 10px, $color-text-button);
+
+                        &:hover {
+                            background-color: $color-bg-button-hover;
+                        }
+
+                        &.selected {
+                            background-color: $color-bg-button-hover !important;
+                        }
+                    }
+                }
+            }
+
+            .pizza-size {
+                display: flex;
+                gap: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+
+                .size-button {
+                    @include submit-button(5px, $color-bg-button, 5px, 10px, $color-text-button);
+
+                    &:hover {
+                        background-color: $color-bg-button-hover;
+                    }
+
+                    &.selected {
+                        background-color: $color-bg-button-hover;
+                    }
+                }
+            }
+
+            .submit-create {
+                @include submit-button(10px, $color-bg-button, 10px, 20px, white);
+            }
+        }
+    }
+
+    .show-result-pizza {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+
+        h1 {
+            text-align: center;
+            @include font-abeezee(22px);
+        }
+    }
+}
+
+/* 📱 Responsive Breakpoints */
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .create-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .create-pizza {
+        width: 90%;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .create-pizza {
+        padding: 20px;
+    }
+
+    .category, .pizza-dough, .pizza-size {
+        text-align: center;
+    }
+
+    .choose-category,
+    .choose-dough,
+    .pizza-size {
+        justify-content: center;
+    }
+
+    .show-result-pizza {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .create-pizza {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .submit-create {
+        width: 100%;
+    }
+}

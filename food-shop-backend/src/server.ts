@@ -1,8 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db";
-import registerRouter from "./routes/register";
-import  loginUser  from "./routes/login";
+import routes from "./routes";
 var cors = require("cors")
 
 // Load environment variables
@@ -25,8 +24,17 @@ app.use(
 connectDB();
 
 // API Routes
-app.use("/api/register", registerRouter);
-app.use("/api/login",loginUser)
+app.use("/api/register", routes.registerRouter);
+app.use("/api/login",routes.loginRouter);
+app.use("/api/get-users",routes.usersRouter); 
+app.use("/api/create-pizza",routes.createPizzaRouter);
+app.use("/api/delete-pizza",routes.deletePizzaRouter);
+app.use("/api/get-pizza",routes.getPizzaRouter);
+app.use("/api/edit-pizza",routes.editPizzaRouter);
+
+
+
+
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

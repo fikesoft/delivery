@@ -1,0 +1,25 @@
+@use "../../assets/style/mixins" as *;
+@use "../../assets/style/variables" as *;
+
+.error{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-bg-main;
+    height: 100vh;
+    color: white;
+    h1{
+        @include font-abeezee(128px,700)
+    }
+    p{
+        @include font-abeezee(32px);
+        max-width: 700px;
+        text-align: center;
+        span{
+            color: $color-bg-button;
+            text-decoration: underline;
+            font-size:48px ;
+        }
+    }
+}
