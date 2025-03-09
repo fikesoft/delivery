@@ -9,7 +9,6 @@ const AdminNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { logout } = useAuth();
   const navigate = useNavigate();
-
   // Function to handle logout and navigation
   const handleLogout = () => {
     logout(); // Call the logout function from context

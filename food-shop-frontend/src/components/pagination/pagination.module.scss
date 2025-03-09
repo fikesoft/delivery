@@ -1,0 +1,36 @@
+@use  "../../assets/style/variables" as  *;
+@use  "../../assets/style/mixins" as  *;
+
+.pagination{
+    display: flex;
+    gap: 20px;
+    .previous-page,.next-page{
+        text-align: center;
+        color:$color-bg-button;
+        @include font-abeezee(16px);
+        &:hover{
+            color: $color-bg-button-hover;
+        }
+    }
+    .pages{
+        display: flex;
+        gap: 10px;
+        li{
+            button{
+                padding: 11px 19px;
+                border: 1px solid $color-bg-button;
+                border-radius: 999px;
+                color: $primary-text;
+                @include font-abeezee(16px);
+                &:hover{
+                    background-color: $color-bg-button;
+                    color: white;
+                }
+            }
+            .active{
+                background-color: $color-bg-button;
+                color: white;
+            }
+        }
+    }
+}

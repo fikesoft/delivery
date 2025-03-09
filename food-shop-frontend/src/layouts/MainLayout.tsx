@@ -1,16 +1,18 @@
 import { Outlet } from "react-router-dom"
-
+import MainNavbar from "../components/mainNavbar/MainNavbar"
 const MainLayout = () => {
   return (
-    <>
+    <div className="main-layout">
+      <div className="main-layout-inner">
         <header>
-            Navbar
+            <MainNavbar/>
         </header>
         <main className="admin-content">
           {/* This is where child routes will render */}
             <Outlet/>
         </main>
-    </>
+      </div> 
+    </div>
   )
 }
 

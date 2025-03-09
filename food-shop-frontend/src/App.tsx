@@ -66,10 +66,7 @@ const routes = createBrowserRouter([
                       path:"update",
                       element:<UpdatePizza/>
                     },
-                    {
-                      path:"delete",
-                      element:<DeletePizza/>
-                    }
+                    
                 ]
               }
             ]

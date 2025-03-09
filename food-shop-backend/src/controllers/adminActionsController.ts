@@ -68,15 +68,15 @@ export const createPizza = async (request: Request, response: Response): Promise
 
 export const deletePizza = async (request: Request, response: Response): Promise<void> => {
     try {
-        const { _id } = request.body;
+        const { _id: data } = request.body;
 
-        if (!_id || typeof _id !== "string") {
+        if (!data || typeof data !== "string") {
             response.status(400).json({ error: "Invalid pizza ID format" });
             return;
         }
 
         // Trim spaces and ensure correct validation
-        const trimmedId = _id.trim();
+        const trimmedId = data.trim();
 
         if (!mongoose.Types.ObjectId.isValid(trimmedId)) {
             response.status(400).json({ error: "Invalid pizza ID" });
@@ -100,19 +100,47 @@ export const deletePizza = async (request: Request, response: Response): Promise
 };
 
 
-export const getPizzas = async (request: Request, response: Response): Promise<void> =>{
+export const getPizzas = async (req: Request, res: Response): Promise<void> => {
     try {
-        const data = await Pizza.find();
-        response.status(200).json({message:"Succesfully fetched the data", data: data})
+      let { page, limit } = req.query;
+  
+      if (!page || !limit) {
+        // If no pagination parameters are provided, return all pizzas
+        const pizzas = await Pizza.find();
+          res.status(200).json({
+          message: "Successfully fetched all pizzas",
+          data: pizzas,
+          totalItems: pizzas.length,    
+        });
+        return
+      }
+  
+      // Convert query params to numbers
+      const pageNumber = parseInt(page as string) || 1;
+      const limitNumber = parseInt(limit as string) || 5;
+  
+      const totalItems = await Pizza.countDocuments();
+      const totalPages = Math.ceil(totalItems / limitNumber);
+  
+      const pizzas = await Pizza.find()
+        .skip((pageNumber - 1) * limitNumber)
+        .limit(limitNumber);
+  
+      res.status(200).json({
+        message: "Successfully fetched paginated data",
+        data: pizzas,
+        totalItems,
+        currentPage: pageNumber,
+        itemsPerPage: limitNumber,
+        totalPages,
+      });
     } catch (error) {
-        console.error("Error fetching pizza:", error);
-        response.status(500).json({ error: "Failed to fetch pizza" });
+      console.error("Error fetching pizza:", error);
+      res.status(500).json({ error: "Failed to fetch pizza" });
     }
-}
-type updatedData ={
-    name:String,
+  };
+  
 
-}
 export  const editPizza = async (request: Request, response: Response): Promise<void> =>{
     try {
         const { 

@@ -31,11 +31,11 @@ const Pizza : React.FC<PizzaProps> = ({
     category=[],
     ingredients,
     basePrice,
-    pizzaDough,
-    pizzaSize , 
+    pizzaDough= [],
+    pizzaSize= [], 
     img,
     buttonDisabled=false,
-    _id
+    _id=undefined
 }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [selectedDough, setSelectedDough] = useState<string | null>(null);
@@ -59,7 +59,7 @@ const Pizza : React.FC<PizzaProps> = ({
 
 
     return (
-    <div className="pizza">
+    <div className="pizza" key={_id}>
         <div className="pizza-ingredients">
             <CiCircleInfo
                 className="icon"  
@@ -78,7 +78,7 @@ const Pizza : React.FC<PizzaProps> = ({
             : <div className={`additionalInfo-${isHovered}`}></div>}
         </div>
         <div className="pizza-img">
-            <img src={img} alt="pizza"/>
+            <img src={img ? img: undefined} alt="pizza"/>
         </div>
 
         <div className="heading">
@@ -108,7 +108,7 @@ const Pizza : React.FC<PizzaProps> = ({
                         className={`pizza-size-option ${selectedSize === size ? "selected" : ""}`}
                         onClick={() => handleSizeSelect(size)}
                     >
-                        {size}
+                        {size}cm
                         
                     </p>
                     ))

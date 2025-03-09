@@ -1,0 +1,199 @@
+.show-pizza {
+  padding: 20px;
+  background-color: #f7f7f7;
+
+  .pizzas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .actions-pizza {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .icon-edit,
+      .icon-delete {
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .icon-edit:hover {
+        color: #007bff;
+      }
+
+      .icon-delete:hover {
+        color: #dc3545;
+      }
+    }
+
+    .input-edit-pizza {
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      position: relative;
+
+      // Cancel (close) icon styling
+      .cancel-icon {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        &:hover {
+          color: #dc3545;
+        }
+      }
+
+      // Done icon styling - made larger and with a distinct color
+      .done-icon {
+        position: absolute;
+        top: 5px;
+        right: 35px; /* Positioned slightly to the left of the cancel icon */
+        font-size: 1.8rem;
+        color: #28a745;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        &:hover {
+          color: #218838;
+        }
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: 10px;
+        border-radius: 4px;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        // Category Section
+        .category {
+          p {
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+          .choose-category {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            button {
+              padding: 5px 10px;
+              border: 1px solid #ccc;
+              background-color: #fff;
+              cursor: pointer;
+              border-radius: 4px;
+              transition: background-color 0.3s ease;
+              &:hover {
+                background-color: #f0f0f0;
+              }
+              &.selected {
+                background-color: #007bff;
+                border-color: #007bff;
+                color: #fff;
+              }
+            }
+          }
+        }
+
+        // Ingredients Section
+        .ingredients {
+          p {
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+          button.add-ingredients {
+            padding: 5px 10px;
+            border: none;
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            &:hover {
+              background-color: #218838;
+            }
+            margin-bottom: 10px;
+          }
+        }
+
+        // Pizza Dough Section
+        .pizza-dough {
+          p {
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+          .choose-dough {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            button {
+              padding: 5px 10px;
+              border: 1px solid #ccc;
+              background-color: #fff;
+              cursor: pointer;
+              border-radius: 4px;
+              transition: background-color 0.3s ease;
+              &:hover {
+                background-color: #f0f0f0;
+              }
+              &.selected {
+                background-color: #007bff;
+                border-color: #007bff;
+                color: #fff;
+              }
+            }
+          }
+        }
+
+        // Pizza Size Section
+        .pizza-size {
+          p {
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          button.size-button {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            &:hover {
+              background-color: #f0f0f0;
+            }
+            &.selected {
+              background-color: #007bff;
+              border-color: #007bff;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
