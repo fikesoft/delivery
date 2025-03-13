@@ -1,6 +1,9 @@
 const Admin = () => {
   return (
-    <div>admin</div>
+    <div>
+      <h1>Welcome to admin panel</h1>
+      <h3>Here you can see the users and check the menu</h3>
+    </div>
   )
 }
 

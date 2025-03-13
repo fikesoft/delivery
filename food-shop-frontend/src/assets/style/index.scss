@@ -18,6 +18,8 @@
 @use  "../../layouts/mainLayout.module.scss";
 @use "../../components/mainNavbar/mainNavbar.module.scss";
 @use "../../features/home/home.module.scss";
+@use "../../components/emptyCart/emptyCart.module.scss";
+@use "../../features/cart/cart.module.scss";
 
 //Button    
 @use  "../../components/formBtn/submitBtn.module.scss";

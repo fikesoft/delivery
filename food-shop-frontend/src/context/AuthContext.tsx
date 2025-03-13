@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const logout = () => {
     setAuth({ isAuthenticated: false, isAdmin: false });
-    // Remove tokens if using them
+    localStorage.clear()
   };
 
   return (

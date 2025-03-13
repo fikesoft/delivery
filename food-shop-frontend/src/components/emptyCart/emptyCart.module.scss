@@ -1,0 +1,30 @@
+@use "../../assets//style/mixins" as   *;
+@use "../../assets//style/variables" as   *;
+
+.empty-cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 72.5vh;
+    .content{
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        .title{
+            @include font-abeezee(32px)
+        }
+        .text{
+            @include font-abeezee(18px);
+            color: #777777;
+            line-height: 1.5;
+        }
+    }
+    .go-home{
+        padding: 15px 30px;
+        background-color: #282828;
+        @include font-abeezee(16px);
+        color: white;
+        border-radius: 30px;
+    }
+}

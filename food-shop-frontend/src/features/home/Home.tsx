@@ -11,13 +11,13 @@ const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedSort, setSelectedSort] = useState("None");
   const [sortBy, setSortBy] = useState(false);
-  const limit = 4;
+  const limit = 5;
 
   const categories = ["Vegan", "Non-gluten", "Meat", "Cheese", "Vegetarian", "Seafood"];
 
-  const fetchData = async (page: number) => {
+  const fetchData = async (page: number,selectedCategory:string , selectedSort:string ) => {
     try {
-      const response = await readPizza(page, limit);
+      const response = await readPizza(page, limit,selectedCategory,selectedSort);
       if (Array.isArray(response.data.data)) {
         setData(response.data.data);
         setTotalPages(response.data.totalPages);
@@ -30,8 +30,9 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchData(currentPage);
-  }, [currentPage]);
+    fetchData(currentPage,selectedCategory,selectedSort);
+  }, [currentPage,selectedCategory,selectedSort]);
+  
 
   return (
     <div className="home">
@@ -71,8 +72,10 @@ const Home = () => {
 
           {sortBy && (
             <div className="sort-options">
-              <p onClick={() => { setSelectedSort("price"); setSortBy(false); }}>By price</p>
-              <p onClick={() => { setSelectedSort("alphabet"); setSortBy(false); }}>By alphabet</p>
+              <p onClick={() => { setSelectedSort("priceAsc"); setSortBy(false); }}>By price ASC</p>
+              <p onClick={() => { setSelectedSort("priceDesc"); setSortBy(false); }}>By price DESC</p>
+              <p onClick={() => { setSelectedSort("nameAsc"); setSortBy(false); }}>By alphabet ASC</p>
+              <p onClick={() => { setSelectedSort("nameDesc"); setSortBy(false); }}>By alphabet DESC</p>
             </div>
           )}
         </div>
@@ -98,7 +101,7 @@ const Home = () => {
               />
             ))
           ) : (
-            <p>Loading...</p>
+            <p>Sorry we didnt find your favorite pizza </p>
           )}
         </div>
       </div>

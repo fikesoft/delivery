@@ -1,13 +1,15 @@
 import { createBrowserRouter,RouterProvider} from "react-router-dom"
 import {Login,Register} from "./features/auth"
 import { Home } from "./features/home"
-import { Admin,Users,CreatePizza,UpdatePizza,ReadPizza,DeletePizza} from "./features/admin"
+import { Cart } from "./features/cart"
+import { Admin,Users,CreatePizza,UpdatePizza,ReadPizza} from "./features/admin"
 import NotFound from "./components/error/NotFound"
 import MainLayout from "./layouts/MainLayout"
 import AdminLayout from "./layouts/AdminLayout"
 import CrudLayout from "./layouts/CrudLayout"
 import { ProtectedRoute } from "./routes"
 import { AuthProvider } from "./context/AuthContext"
+import { CartProvider } from "./context/CartContext"
 import "./assets/style/reset.css";
 import "./assets/style/index.css";
 const routes = createBrowserRouter([
@@ -30,6 +32,10 @@ const routes = createBrowserRouter([
             index: true,
             element: <Home />,
           },
+          {
+            path:"cart",
+            element:<Cart/>
+          }
         ],
       },
       {
@@ -83,7 +89,9 @@ const routes = createBrowserRouter([
 function App() {
   return (
     <AuthProvider>
-      <RouterProvider router={routes} />
+      <CartProvider>
+        <RouterProvider router={routes} />
+      </CartProvider> 
     </AuthProvider>
   )
 }

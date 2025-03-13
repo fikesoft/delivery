@@ -5,7 +5,8 @@ const Logo = () => {
         <img src={logoIcon} alt='LOGO'/>
         <div className='text'>
             <h1 className='title'>REACT PIZZA</h1>
-            <p className='subtitle'>Самая вкусная пицца во вселенной</p>
+            <p className='subtitle'>
+            The most delicious pizza in the universe</p>
         </div>
     </div>
   )

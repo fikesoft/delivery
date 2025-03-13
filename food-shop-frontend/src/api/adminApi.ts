@@ -46,9 +46,9 @@ export const createPizza = async(
     }
 }
 
-export const readPizza = async (page = 1, limit = 5) => {
+export const readPizza = async (page = 1, limit = 5, category ="All" , sortBy= "None") => {
     try {
-      const response = await api.get(`/get-pizza?page=${page}&limit=${limit}`);
+      const response = await api.get(`/get-pizza?page=${page}&limit=${limit}&category=${category}&sortBy=${sortBy}`);
       return { status: response.status, data: response.data };
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {

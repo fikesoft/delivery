@@ -1,0 +1,245 @@
+@use "../../assets/style/mixins" as *;
+
+.main-layout {
+    .full-cart {
+        min-height: 72.5vh;
+        display: flex;
+        flex-direction: column;
+        padding: 0px 40px;
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            margin-bottom: 50px;
+
+            .header-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .title {
+                    @include font-abeezee(32px);
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
+
+                .delete-all {
+                    color: #B6B6B6;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    cursor: pointer;
+                    text-align: center;
+                    @include font-abeezee(16px);
+
+                    &:hover {
+                        color: #ff5757;
+                    }
+                }
+            }
+        }
+
+        .items {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .cart-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 15px;
+                padding: 30px 0px;
+                border-top: 1px solid #f4f4f4;
+
+                .cart-item-content {
+                    display: flex;
+                    gap: 15px;
+                }
+
+                img {
+                    max-width: 80px;
+                    border-radius: 8px;
+                }
+
+                .description {
+                    display: flex;
+                    flex-direction: column;
+                    max-width: 180px;
+
+                    h3 {
+                        @include font-abeezee(22px);
+                        margin-bottom: 5px;
+                    }
+
+                    .selected-data {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 5px;
+                        color: #8d8d8d;
+
+                        p {
+                            @include font-abeezee(18px);
+                        }
+                    }
+                }
+
+                .pizza-data {
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    gap: 100px;
+
+                    p {
+                        @include font-abeezee(18px);
+                    }
+                }
+
+                button {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 22px;
+                    color: #D7D7D7;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+
+        .info-cart {
+            display: flex;
+            justify-content: space-between;
+
+            .pizza-count {
+                @include font-abeezee(22px);
+            }
+
+            .pizza-total {
+                @include font-abeezee(22px);
+
+                span {
+                    color: #FE5F1E;
+                }
+            }
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+
+            .go-home {
+                color: #D3D3D3;
+                border: 1px solid #CACACA;
+                background-color: white;
+                @include font-abeezee(16px);
+                padding: 18px 60px;
+                border-radius: 30px;
+                display: flex;
+                align-items: center;
+
+                .icon {
+                    font-size: 18px;
+                }
+            }
+
+            .buy {
+                background-color: #FE5F1E;
+                color: white;
+                padding: 18px 60px;
+                border-radius: 30px;
+                @include font-abeezee(16px);
+            }
+        }
+    }
+
+    @media (max-width: 425px) {
+        padding: 20px;
+        
+        .full-cart {
+            padding: 0px 20px;
+
+            .cart-items {
+                gap: 30px;
+                margin-bottom: 30px;
+
+                .header-content {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 10px;
+
+                    .title {
+                        font-size: 24px;
+                    }
+
+                    .delete-all {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .items {
+                gap: 20px;
+
+                .cart-item {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    padding: 20px 0px;
+                    gap: 10px;
+
+                    .cart-item-content {
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+
+                    img {
+                        max-width: 60px;
+                    }
+
+                    .description {
+                        max-width: 100%;
+
+                        h3 {
+                            font-size: 18px;
+                        }
+
+                        .selected-data p {
+                            font-size: 16px;
+                        }
+                    }
+
+                    .pizza-data {
+                        gap: 20px;
+                    }
+                }
+            }
+
+            .info-cart {
+                flex-direction: column;
+                gap: 10px;
+
+                .pizza-count,
+                .pizza-total {
+                    font-size: 18px;
+                }
+            }
+
+            .actions {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+
+                .go-home,
+                .buy {
+                    padding: 14px 40px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

@@ -1200,6 +1200,271 @@
     gap: 20px;
   }
 }
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 72.5vh;
+}
+.empty-cart .content {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.empty-cart .content .title {
+  font-family: "ABeeZee", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  font-style: normal;
+}
+.empty-cart .content .text {
+  font-family: "ABeeZee", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+  color: #777777;
+  line-height: 1.5;
+}
+.empty-cart .go-home {
+  padding: 15px 30px;
+  background-color: #282828;
+  font-family: "ABeeZee", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  border-radius: 30px;
+}
+
+.main-layout .full-cart {
+  min-height: 72.5vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 40px;
+}
+.main-layout .full-cart .cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+.main-layout .full-cart .cart-items .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-layout .full-cart .cart-items .header-content .title {
+  font-family: "ABeeZee", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.main-layout .full-cart .cart-items .header-content .delete-all {
+  color: #B6B6B6;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-family: "ABeeZee", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+}
+.main-layout .full-cart .cart-items .header-content .delete-all:hover {
+  color: #ff5757;
+}
+.main-layout .full-cart .items {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.main-layout .full-cart .items .cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 30px 0px;
+  border-top: 1px solid #f4f4f4;
+}
+.main-layout .full-cart .items .cart-item .cart-item-content {
+  display: flex;
+  gap: 15px;
+}
+.main-layout .full-cart .items .cart-item img {
+  max-width: 80px;
+  border-radius: 8px;
+}
+.main-layout .full-cart .items .cart-item .description {
+  display: flex;
+  flex-direction: column;
+  max-width: 180px;
+}
+.main-layout .full-cart .items .cart-item .description h3 {
+  font-family: "ABeeZee", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 5px;
+}
+.main-layout .full-cart .items .cart-item .description .selected-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  color: #8d8d8d;
+}
+.main-layout .full-cart .items .cart-item .description .selected-data p {
+  font-family: "ABeeZee", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+}
+.main-layout .full-cart .items .cart-item .pizza-data {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 100px;
+}
+.main-layout .full-cart .items .cart-item .pizza-data p {
+  font-family: "ABeeZee", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+}
+.main-layout .full-cart .items .cart-item button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: #D7D7D7;
+}
+.main-layout .full-cart .items .cart-item button:hover {
+  transform: scale(1.05);
+}
+.main-layout .full-cart .info-cart {
+  display: flex;
+  justify-content: space-between;
+}
+.main-layout .full-cart .info-cart .pizza-count {
+  font-family: "ABeeZee", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  font-style: normal;
+}
+.main-layout .full-cart .info-cart .pizza-total {
+  font-family: "ABeeZee", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  font-style: normal;
+}
+.main-layout .full-cart .info-cart .pizza-total span {
+  color: #FE5F1E;
+}
+.main-layout .full-cart .actions {
+  display: flex;
+  justify-content: space-between;
+}
+.main-layout .full-cart .actions .go-home {
+  color: #D3D3D3;
+  border: 1px solid #CACACA;
+  background-color: white;
+  font-family: "ABeeZee", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  padding: 18px 60px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+}
+.main-layout .full-cart .actions .go-home .icon {
+  font-size: 18px;
+}
+.main-layout .full-cart .actions .buy {
+  background-color: #FE5F1E;
+  color: white;
+  padding: 18px 60px;
+  border-radius: 30px;
+  font-family: "ABeeZee", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+}
+@media (max-width: 425px) {
+  .main-layout {
+    padding: 20px;
+  }
+  .main-layout .full-cart {
+    padding: 0px 20px;
+  }
+  .main-layout .full-cart .cart-items {
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  .main-layout .full-cart .cart-items .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .main-layout .full-cart .cart-items .header-content .title {
+    font-size: 24px;
+  }
+  .main-layout .full-cart .cart-items .header-content .delete-all {
+    font-size: 14px;
+  }
+  .main-layout .full-cart .items {
+    gap: 20px;
+  }
+  .main-layout .full-cart .items .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 0px;
+    gap: 10px;
+  }
+  .main-layout .full-cart .items .cart-item .cart-item-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .main-layout .full-cart .items .cart-item img {
+    max-width: 60px;
+  }
+  .main-layout .full-cart .items .cart-item .description {
+    max-width: 100%;
+  }
+  .main-layout .full-cart .items .cart-item .description h3 {
+    font-size: 18px;
+  }
+  .main-layout .full-cart .items .cart-item .description .selected-data p {
+    font-size: 16px;
+  }
+  .main-layout .full-cart .items .cart-item .pizza-data {
+    gap: 20px;
+  }
+  .main-layout .full-cart .info-cart {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .main-layout .full-cart .info-cart .pizza-count,
+  .main-layout .full-cart .info-cart .pizza-total {
+    font-size: 18px;
+  }
+  .main-layout .full-cart .actions {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .main-layout .full-cart .actions .go-home,
+  .main-layout .full-cart .actions .buy {
+    padding: 14px 40px;
+    font-size: 14px;
+  }
+}
+
 .form-btn {
   border-radius: 30px;
   background-color: #FE5F1E;

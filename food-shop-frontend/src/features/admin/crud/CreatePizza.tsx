@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FormRow } from '../../../components/formRow';
 import { createPizza } from '../../../api/adminApi';
 import Pizza from '../../../components/pizza/Pizza';
+import { toast } from 'react-toastify';
 
 const CreatePizza = () => {
   const [name, setName] = useState("");
@@ -9,18 +10,18 @@ const CreatePizza = () => {
   const [arrayIngredients, setArrayIngredients] = useState<string[]>([]);
   const [basePrice, setBasePrice] = useState("");
   const [arrayDough, setArrayDough] = useState<string[]>([]);
-  const [arraySize,setArraySize] = useState<string[]>([]);
-  const [url,setUrl] = useState("");
+  const [arraySize, setArraySize] = useState<string[]>([]);
+  const [url, setUrl] = useState("");
 
   const categories = ["Vegan", "Non-gluten", "Meat", "Cheese", "Vegetarian", "Seafood"];
   const pizzaDoughOptions = ["Light", "Traditional"];
-  const pizzaSizeOptions = ["26","30", "40"]; 
+  const pizzaSizeOptions = ["26", "30", "40"];
 
   const handleCategoryToggle = (event: React.MouseEvent<HTMLButtonElement>, category: string) => {
     event.preventDefault();
-    setArrayCategory(prev => 
-      prev.includes(category) 
-        ? prev.filter(cat => cat !== category) 
+    setArrayCategory(prev =>
+      prev.includes(category)
+        ? prev.filter(cat => cat !== category)
         : [...prev, category]
     );
   };
@@ -39,26 +40,41 @@ const CreatePizza = () => {
   // Corrected dough toggle handler
   const handleDoughToggle = (event: React.MouseEvent<HTMLButtonElement>, doughType: string) => {
     event.preventDefault();
-    setArrayDough(prev => 
-      prev.includes(doughType) 
-        ? prev.filter(d => d !== doughType) 
+    setArrayDough(prev =>
+      prev.includes(doughType)
+        ? prev.filter(d => d !== doughType)
         : [...prev, doughType]
     );
   };
 
-  const handleSizeToggle = (event: React.MouseEvent<HTMLButtonElement> ,size:string ) => {
+  const handleSizeToggle = (event: React.MouseEvent<HTMLButtonElement>, size: string) => {
     event.preventDefault();
-    setArraySize(prev => 
-      prev.includes(size) 
-        ? prev.filter(cat => cat !== size) 
+    setArraySize(prev =>
+      prev.includes(size)
+        ? prev.filter(cat => cat !== size)
         : [...prev, size]
     );
-  }
-  const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement>):Promise<void> =>{
+  };
+
+  const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement>): Promise<void> => {
     event.preventDefault();
-    const response = await createPizza(name,arrayCategory,arrayIngredients,parseInt(basePrice),arrayDough,arraySize,url)
-    console.log(response.data)
-  }
+    try {
+      const response = await createPizza(
+        name,
+        arrayCategory,
+        arrayIngredients,
+        parseInt(basePrice),
+        arrayDough,
+        arraySize,
+        url
+      );
+      console.log(response.data);
+      toast.success("Pizza created successfully!");
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to create pizza.");
+    }
+  };
 
   return (
     <div className="create-container">
@@ -112,7 +128,7 @@ const CreatePizza = () => {
           <FormRow
             placeHolderText="Price"
             labelText="Base price"
-            typeInput="number" // Changed to number input
+            typeInput="number"
             value={basePrice}
             handleOnChange={(e) => setBasePrice(e.target.value)}
           />
@@ -121,7 +137,7 @@ const CreatePizza = () => {
           <div className='pizza-dough'>
             <p>Pizza dough</p>
             <div className="choose-dough">
-              {pizzaDoughOptions.map((dough) => ( // Use pizzaDoughOptions
+              {pizzaDoughOptions.map((dough) => (
                 <button
                   key={dough}
                   className={`dough-button ${arrayDough.includes(dough) ? "selected" : ""}`}
@@ -131,15 +147,14 @@ const CreatePizza = () => {
                 </button>
               ))}
             </div>
-          
 
             <div className='pizza-size'>
               <p>Pizza size</p>
-              {pizzaSizeOptions.map((size) =>(
+              {pizzaSizeOptions.map((size) => (
                 <button
                   key={size}
-                  className={`size-button ${ arraySize.includes(size) ? "selected" : "" }`}
-                  onClick={(e)=>handleSizeToggle(e,size)}
+                  className={`size-button ${arraySize.includes(size) ? "selected" : ""}`}
+                  onClick={(e) => handleSizeToggle(e, size)}
                 >
                   {size}
                 </button>
@@ -153,7 +168,7 @@ const CreatePizza = () => {
               handleOnChange={(e) => setUrl(e.target.value)}
             />
           </div>
-          <button className='submit-create' onClick={(e)=>{handleSubmit(e)}}>Submit</button>
+          <button className='submit-create' onClick={handleSubmit}>Submit</button>
         </form>
       </div>
 
@@ -174,4 +189,4 @@ const CreatePizza = () => {
   );
 };
 
-export default CreatePizza; 
+export default CreatePizza;

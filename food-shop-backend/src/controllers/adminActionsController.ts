@@ -3,6 +3,7 @@ import User from "../models/users"
 import Pizza from "../models/pizzas"
 import mongoose from "mongoose"
 import { IPizza } from "../models/pizzas"
+
 //Gets an part of the users and  give back an sample of that %
 export const getUsers = async (request:Request,response:Response): Promise<void> =>{
         try {
@@ -99,12 +100,11 @@ export const deletePizza = async (request: Request, response: Response): Promise
     }
 };
 
-
 export const getPizzas = async (req: Request, res: Response): Promise<void> => {
     try {
-      let { page, limit } = req.query;
+      let { page, limit , category,sortBy} = req.query;
   
-      if (!page || !limit) {
+      if (!page || !limit || !category || !sortBy) {
         // If no pagination parameters are provided, return all pizzas
         const pizzas = await Pizza.find();
           res.status(200).json({
@@ -118,15 +118,30 @@ export const getPizzas = async (req: Request, res: Response): Promise<void> => {
       // Convert query params to numbers
       const pageNumber = parseInt(page as string) || 1;
       const limitNumber = parseInt(limit as string) || 5;
-  
       const totalItems = await Pizza.countDocuments();
       const totalPages = Math.ceil(totalItems / limitNumber);
+
+      //Filter
+      const categoryQuery = category && category !== "All" ? { category } : {};
+    
+      const sortByQuery: Record<string, 1 | -1> = {};;     
+        
+         if (sortBy === "priceAsc") {
+            sortByQuery.basePrice = 1; // Ascending
+        } else if (sortBy === "priceDesc") {
+            sortByQuery.basePrice = -1; // Descending
+        } else if (sortBy === "nameAsc") {
+            sortByQuery.name = 1; // A-Z
+        } else if (sortBy === "nameDesc") {
+            sortByQuery.name = -1; // Z-A
+        }
   
-      const pizzas = await Pizza.find()
+      const pizzas = await Pizza.find(categoryQuery)
+        .sort(sortByQuery)   
         .skip((pageNumber - 1) * limitNumber)
         .limit(limitNumber);
   
-      res.status(200).json({
+      res.status(200).json({        
         message: "Successfully fetched paginated data",
         data: pizzas,
         totalItems,
