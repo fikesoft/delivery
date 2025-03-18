@@ -1,0 +1,134 @@
+@use "../../assets/style/variables" as *;
+
+@use "../../assets/style/mixins" as *;
+
+.users-container{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 50px;
+    .user-custom-search{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        border-radius: 10px;
+        @include font-abeezee(18px ,600);
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            @include font-abeezee(16px ,400);
+
+        .button-search-user{
+            background-color: $color-bg-button;
+            color: $primary-text;
+            padding: 10px 30px;
+            border-radius: 10px;
+            opacity: 1;
+            width: 30px;
+            height: 30px;
+            color: white;
+            cursor: pointer;
+          &:hover{
+            opacity: 0.7;
+          }
+        }
+        ul{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            li{
+                .percentage-button{
+                    padding: 10px 30px;
+                    border-radius: 10px;
+                    background-color: $bg-form-input;
+                    color: $primary-text;
+                    &:hover{
+                        background-color: $second-text;
+                        color:white;
+                    }
+                }
+                .percentage-button.active{
+                    background-color: $second-text;
+                    color:white;
+                    &:hover{
+                        background-color: $bg-form-input;
+                        color: $primary-text;
+                    }
+                }
+            }
+        }
+        .percentage-input{
+            padding: 10px 30px;
+            border-radius: 10px;
+            background-color: $bg-form-input;
+            color: $primary-text;
+            width: 50px;
+        }
+    }
+    }
+    .user-data {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        
+        thead {
+          background-color: #f4f4f4;
+          font-weight: bold;
+          text-align: left;
+          
+          th {
+            padding: 12px 15px;
+            border-bottom: 2px solid #ddd;
+            text-transform: uppercase;
+            color: #333;
+          }
+        }
+      
+        tbody {
+          tr {
+            &:nth-child(even) {
+              background-color: #f9f9f9;
+            }
+      
+            &:hover {
+              background-color: #f1f1f1;
+              cursor: pointer;
+            }
+      
+            th {
+              padding: 10px 15px;
+              border-bottom: 1px solid #ddd;
+              text-align: left;
+              font-size: 14px;
+              color: #555;
+            }
+          }
+        }
+      
+        .loading {
+          text-align: center;
+          font-size: 18px;
+          padding: 20px;
+        }
+      
+        .no-users {
+          text-align: center;
+          font-size: 18px;
+          padding: 20px;
+          color: #777;
+        }
+      
+        th, td {
+          word-wrap: break-word;
+          text-overflow: ellipsis;
+          max-width: 200px;
+        }
+      }
+}

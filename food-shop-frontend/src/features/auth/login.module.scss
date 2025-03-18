@@ -1,0 +1,77 @@
+@use "../../assets//style/variables" as *; 
+@use "../../assets//style/mixins" as *; 
+
+.auth-page {
+    position: relative; // Establishes a stacking context
+  
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    background-color: $color-bg-main;
+    top: 0;
+    left: 0;
+  
+    .bgphoto {
+      position: absolute; // Remove from normal flow
+      top: 110px;           // Adjust as needed for placement
+      left: 0;          // Adjust as needed for placement
+      z-index: 1;    
+      max-width: 1200px;   // Lower than login container
+    }
+  
+    .auth-container {
+      position: relative; // Ensure it can be layered above the image
+      z-index: 2;         // Higher than the image
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 50px;
+      border-radius: 10px;
+      width: 450px;
+      padding: 20px 40px;
+      box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+      background-color: #FFFF;
+      .custom-notification{
+        position: absolute;
+        top: 160px;   // Adjust to move up/down
+        left: 50%;   // Center horizontally
+        transform: translateX(-50%);  // Adjust for exact centering
+        z-index: 9999;
+      }
+      .login-container-form {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+  
+        .input-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          gap: 15px;
+          
+        }
+        .button-container{
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          justify-content: center;
+          align-items: center;  
+          @include font-abeezee(12px);
+          span{
+            color:$color-bg-button;
+          }
+        }
+      }
+    }
+  }
+@media(max-width:1000px){
+  .bgphoto{
+    display: none;
+  }
+}
+  

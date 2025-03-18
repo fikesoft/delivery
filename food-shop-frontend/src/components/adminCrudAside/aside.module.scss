@@ -1,0 +1,9 @@
+@use "../../assets/style/mixins" as * ;
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+    @include font-abeezee(16px ,700);
+    padding: 60px;
+    color:#181818;
+}

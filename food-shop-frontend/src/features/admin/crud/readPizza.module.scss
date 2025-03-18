@@ -1,0 +1,15 @@
+.show-pizza{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    .pizzas{
+        display: flex;
+        gap: 100px;
+    }
+    .pagination{
+        display: flex;
+        gap: 20px;
+    }
+}

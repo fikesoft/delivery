@@ -1,0 +1,40 @@
+@use "./../../assets//style//mixins" as * ;
+@use "./../../assets//style//variables" as * ;
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+.shake {
+    animation: shake 0.3s ease-in-out;
+}
+.error-message{
+    color:#EF5350;
+    @include font-abeezee(12px);
+}
+.form-row{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    max-width: 350px;
+    .label{
+        @include font-abeezee(16px)
+    }
+    .input{
+        width: 100%;
+        background-color: $bg-form-input;
+        @include font-abeezee(14px);
+        @include input(10,15px,25px,$color-text-input)
+    }
+    .icon-eye{
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+
+}

@@ -1,0 +1,20 @@
+@use "../../assets//style/mixins" as *; 
+@use "../../assets//style/variables" as *; 
+
+.logo-container{
+    display: flex;
+    gap: 15px; 
+    max-width: 330px;
+    .text{
+        display: flex;
+        flex-direction: column;
+        .title{
+            @include font-abeezee(24px);
+           color: $primary-text ;
+        }
+        .subtitle{
+            @include font-abeezee(16px);
+            color:$second-text;
+        }
+    }
+} 

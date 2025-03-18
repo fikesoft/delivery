@@ -1,0 +1,31 @@
+@use "../../assets/style/mixins" as *;
+.button-add-pizza{
+    display: flex;
+    border-radius: 30px;
+    background-color: #FE5F1E;
+    color: white;
+    padding: 9px 14px;
+    display: flex;
+    align-items: center;
+    @include font-abeezee(16px);
+    transition: all 0.3s ease-in-out;
+    .icon{
+        font-size: 24px;
+    }
+    &:hover{
+        background-color: white;
+        color: #EB5A1E;
+        border: 1px solid #EB5A1E;
+    }
+    &:disabled {
+        background-color: rgb(209, 209, 209);
+        cursor: not-allowed;
+        transform: none; // Prevents animation on disabled
+    }
+    //The logic part of adding to cart 
+    &.selected{
+        background-color: white;
+        color: #EB5A1E;
+        border: 1px solid #EB5A1E;
+    }
+}

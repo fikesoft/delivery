@@ -1,0 +1,52 @@
+@use "../../assets/style/mixins" as *;
+.main-navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 70px;
+    border-bottom: 1px solid #F6F6F6;
+    .main-navbar-actions{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        .button-cart,.button-exit{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background-color: #FE5F1E;
+            padding: 10px 30px;        
+            color: white;
+            border-radius: 30px;
+            @include font-abeezee(16px);
+            cursor: pointer;
+        }
+        .button-cart{
+            .number-order{
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                .number-of-order{
+                    font-size: 14px
+                }
+                .cart{
+                    font-size: 24px;
+            }}
+           
+        }
+       
+    }
+}
+
+@media (max-width: 1024px) {
+   .main-navbar{
+    flex-direction: column;
+    gap: 20px;
+    .main-navbar-actions{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+   }
+  }

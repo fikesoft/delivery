@@ -1,0 +1,8 @@
+@use "../../assets/style/mixins" as *; 
+@use "../../assets/style/variables" as *; 
+
+.form-btn{
+    @include submit-button(30px,$color-bg-button,17px,13px,$color-text-button);
+    max-width: 200px;
+    @include font-abeezee(16px);
+}

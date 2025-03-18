@@ -1,0 +1,31 @@
+//npx sass --watch src/assets/style/index.scss src/assets/style/index.css 
+@use "./mixins" as *;
+@use "./variables" as * ;
+//Import the components
+@use "../../components//logo//logo.module.scss";
+@use  "../../components/formRow/formRow.module.scss";
+@use "../../features//auth/login.module.scss";
+@use  "../../components/adminNavbar/adminNavbar.module.scss";
+@use "../../components/error/error404.module.scss";
+@use  "../../features//admin//users.moudle.scss";
+@use "../../layouts/crud.module.scss";
+@use  "../../components/adminCrudAside/aside.module.scss";
+@use "../../features/admin/crud/createPizza.module.scss";
+@use "../../components/pizza/pizza.module.scss";
+@use "../../features/admin/crud/readPizza.module.scss";
+@use  "../../components/pagination/pagination.module.scss";
+@use "../../features/admin/crud/updateDelelete.module.scss";
+@use  "../../layouts/mainLayout.module.scss";
+@use "../../components/mainNavbar/mainNavbar.module.scss";
+@use "../../features/home/home.module.scss";
+@use "../../components/emptyCart/emptyCart.module.scss";
+@use "../../features/cart/cart.module.scss";
+
+//Button    
+@use  "../../components/formBtn/submitBtn.module.scss";
+@use "../../components/addPizza/addPizzaBtn.module.scss";
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap');
+
+
+
+

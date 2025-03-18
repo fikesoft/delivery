@@ -1,0 +1,12 @@
+.main-layout{
+    padding: 100px;
+    background-color: #FED892;
+    height: 100%;
+    .main-layout-inner{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        border-radius: 10px;
+    }
+}

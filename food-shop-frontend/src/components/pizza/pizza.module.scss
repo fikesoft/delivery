@@ -1,0 +1,114 @@
+@use "../../assets/style/mixins" as * ;
+
+.pizza{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    width: 280px;
+    @include font-abeezee(16px);
+    .pizza-ingredients{
+        display: flex;
+        justify-content:end ;
+        position: relative;
+        align-self: flex-end;
+        .icon{
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .additionalInfo-true {
+            position: absolute;
+            top: 100%; // Places it below the icon
+            right: 0;
+            background-color: #F3F3F3; // Dark background with opacity
+            color: #181818;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width:280px;
+            flex-wrap: wrap;
+            z-index: 10; // Ensures it appears above other elements
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        
+            &.visible {
+              opacity: 1;
+              transform: translateY(0);
+            }
+        }
+
+    }
+    .pizza-img{
+        width: 100%;
+    }
+    .heading{
+        .title{
+            color: #000;
+            @include font-abeezee(20px);
+        }
+    }
+    .custom-pizza{
+        background-color: #F3F3F3;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 7px;
+        padding: 7px 5px;
+        width: 100%;
+        .pizza-dough{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            color:#2C2C2C ;
+            width: 100%;
+            .pizza-dough-option{
+                text-align: center;
+                width: 100%;
+                cursor: pointer;
+                padding: 9px 30px;
+                &.selected{
+                    background-color: white;
+                    border-radius: 5px;
+                }
+            }
+        }
+        .pizza-size{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            color:#2C2C2C ;
+            width: 100%;
+            .pizza-size-option{
+                text-align: center;
+                padding: 10px 15px;
+                width: 100%;
+                cursor: pointer;
+                &.selected{
+                    background-color: white;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+    .pizza-buy{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .pizza-price{
+            @include font-abeezee(26px);
+            line-height: 1.5;
+            color: #000;
+        }
+    }
+
+}
+
