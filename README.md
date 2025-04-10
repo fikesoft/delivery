@@ -15,6 +15,10 @@ This project was based on typescript on frontend and backend also.
 
 ---This project has Admin panel where
 > You can create an pizza in menu
+> 
 > View all the pizza
+> 
 > View all the users
+> 
 > Delete and Update the pizza
+> 
